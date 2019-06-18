@@ -4,6 +4,7 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
@@ -32,6 +33,7 @@
             android:id="@+id/nav_links"
             android:icon="@drawable/ic_link"
             android:title="Linki" />
+
     </group>
 
     <item android:title="Communicate">
