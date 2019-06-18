@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Strona główna" />
+
+
+        <item
+            android:id="@+id/nav_gallery_square"
+            android:icon="@drawable/ic_gallery"
+            android:title="Galeria - Rynek" />
+        <item
+            android:id="@+id/nav_gallery_center"
+            android:icon="@drawable/ic_gallery"
+            android:title="Galeria - Centrum" />
+        <item
+            android:id="@+id/nav_gallery_castle"
+            android:icon="@drawable/ic_gallery"
+            android:title="Galeria - Zamek" />
+        <item
+            android:id="@+id/nav_gallery_other"
+            android:icon="@drawable/ic_gallery"
+            android:title="Galeria - Różne" />
+
+
+        <item
+            android:id="@+id/nav_links"
+            android:icon="@drawable/ic_link"
+            android:title="Linki" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_gallery"
+                android:title="Share" />
+        </menu>
+    </item>
+
+</menu>
