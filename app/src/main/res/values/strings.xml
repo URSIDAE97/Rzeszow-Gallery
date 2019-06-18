@@ -1,6 +1,27 @@
 <resources>
-    <string name="app_name">RzeszowGallery</string>
+    <string name="app_name">Rzeszów</string>
 
+    <!-- navigation drawer -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- menu header -->
+    <string name="header_main">RZESZÓW</string>
+    <string name="header_sub">Stolica innowacji</string>
+    <string name="header_logo_desc">logo miasta Rzeszowa</string>
+
+    <!-- home page -->
+    <string name="home_info">Rzeszów to największe miasto w Polsce południowo-wschodniej, stolica Podkarpacia. Powstało już w XIV wieku i od tego czasu prężnie się rozwijało. Choć w czasie II wojny światowej zostało bardzo osłabione wciąż ma ogromny potencjał. Jest najważniejszym ośrodkiem gospodarczym, kulturalnym i komunikacyjnym Podkarpacia. Na terenie Rzeszowa znajduje się lotnisko międzynarodowe. Dzięki obecności wielu szkół wyższych, w tym Uniwersytetu Rzeszowskiego, jest też ważnym punktem oświatowym na mapie Polski, skupiającym ok. 50 tys. studentów.</string>
+    <string name="home_header">Rzeszów - Stolica innowacji</string>
+    <string name="home_header2">Przejdź do galerii:</string>
+    <string name="home_square_desc">rynek w centrum miasta Rzeszowa</string>
+    <string name="home_logo_desc">logo miasta Rzeszowa</string>
+    <string name="home_gallery_square">Rynek</string>
+    <string name="home_gallery_castle">Zamek</string>
+    <string name="home_gallery_center">Centrum</string>
+    <string name="home_gallery_other">Różne</string>
+    <string name="home_gallery_square_desc">Rzeszowski rynek</string>
+    <string name="home_gallery_castle_desc">Zamek Lubomirskich</string>
+    <string name="home_gallery_center_desc">Pomnik w centrum Rzeszowa</string>
+    <string name="home_gallery_other_desc">Most Mazowieckiego</string>
 </resources>
