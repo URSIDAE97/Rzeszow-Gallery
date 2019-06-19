@@ -24,4 +24,9 @@
     <string name="home_gallery_castle_desc">Zamek Lubomirskich</string>
     <string name="home_gallery_center_desc">Pomnik w centrum Rzeszowa</string>
     <string name="home_gallery_other_desc">Most Mazowieckiego</string>
+
+    <!-- gallery - square page -->
+    <string name="square_header">Rzeszowski rynek:</string>
+    <string name="square_img_desc">Rzeszowski rynek - zdjęcie z galerii</string>
+    <string name="square_img_counter">%1$d / %2$d</string>
 </resources>
