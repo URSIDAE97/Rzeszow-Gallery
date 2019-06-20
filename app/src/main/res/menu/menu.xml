@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <group android:checkableBehavior="single">
     <item
         android:id="@+id/nav_home"
         android:icon="@drawable/ic_home"
+        android:checked="true"
         android:title="@string/menu_main_item1" />
 
 
@@ -12,18 +13,22 @@
             <item
                 android:id="@+id/nav_gallery_square"
                 android:icon="@drawable/ic_gallery"
+                android:checked="false"
                 android:title="@string/menu_main_item2" />
             <item
                 android:id="@+id/nav_gallery_center"
                 android:icon="@drawable/ic_gallery"
+                android:checked="false"
                 android:title="@string/menu_main_item3" />
             <item
                 android:id="@+id/nav_gallery_castle"
                 android:icon="@drawable/ic_gallery"
+                android:checked="false"
                 android:title="@string/menu_main_item4" />
             <item
                 android:id="@+id/nav_gallery_other"
                 android:icon="@drawable/ic_gallery"
+                android:checked="false"
                 android:title="@string/menu_main_item5" />
         </menu>
     </item>
@@ -33,12 +38,14 @@
             <item
                 android:id="@+id/nav_links"
                 android:icon="@drawable/ic_link"
+                android:checked="false"
                 android:title="@string/menu_main_item6" />
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_exit"
                 android:icon="@drawable/ic_gallery"
                 android:title="@string/menu_main_item7" />
         </menu>
     </item>
+    </group>
 
 </menu>

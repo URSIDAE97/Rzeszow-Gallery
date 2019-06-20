@@ -39,8 +39,7 @@ public class FragmentGallerySquare extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_gallery_square, container, false);
-        try{ ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.square_toolbar_title); }
-        catch (Exception e) {}
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.square_toolbar_title);
         setHasOptionsMenu(true);
         img = view.findViewById(R.id.square_img);
         txt = view.findViewById(R.id.square_txt);
