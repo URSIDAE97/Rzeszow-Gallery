@@ -5,8 +5,15 @@
     <item
         android:id="@+id/action_grid"
         app:showAsAction="never"
-        android:title="@string/menu_galleries_item1_1"
+        android:title="@string/menu_galleries_item1"
         android:orderInCategory="1">
+    </item>
+
+    <item
+        android:id="@+id/action_single"
+        app:showAsAction="never"
+        android:title="@string/menu_galleries_item2"
+        android:orderInCategory="2">
     </item>
 
 </menu>

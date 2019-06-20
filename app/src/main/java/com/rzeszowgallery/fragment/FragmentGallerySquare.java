@@ -12,15 +12,17 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.rzeszowgallery.listiner.OnSwipeTouchListener;
 import com.rzeszowgallery.R;
+import com.rzeszowgallery.recyclerView.RecyclerAdapter;
 
 public class FragmentGallerySquare extends Fragment {
 
@@ -29,6 +31,7 @@ public class FragmentGallerySquare extends Fragment {
     private ImageView img;
     private TextView txt;
     private Resources res;
+    private View view;
     private int[] images = { R.drawable.square_gallery_1,
                             R.drawable.square_gallery_2,
                             R.drawable.square_gallery_3,
@@ -38,14 +41,21 @@ public class FragmentGallerySquare extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_gallery_square, container, false);
+        view = inflater.inflate(R.layout.fragment_gallery_square, container, false);
+
+        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(getActivity(), images);
+        recyclerView.setAdapter(recyclerAdapter);
+
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.square_toolbar_title);
         setHasOptionsMenu(true);
         img = view.findViewById(R.id.square_img);
         txt = view.findViewById(R.id.square_txt);
         res = getResources();
         txt.setText(res.getString(R.string.square_img_counter, img_index + 1, images.length));
-        ButtonsControl(view);
+        ButtonsControl();
         SwipeControl();
 
         return view;
@@ -61,14 +71,23 @@ public class FragmentGallerySquare extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_grid:
-                Toast.makeText(getActivity(), "grid", Toast.LENGTH_SHORT).show();
+                view.findViewById(R.id.gallery_square_single).setVisibility(View.GONE);
+                view.findViewById(R.id.gallery_square_grid).setVisibility(View.VISIBLE);
+                view.findViewById(R.id.gallery_square_scroll_view).setOverScrollMode(View.OVER_SCROLL_NEVER);
                 return true;
+
+            case R.id.action_single:
+                view.findViewById(R.id.gallery_square_grid).setVisibility(View.GONE);
+                view.findViewById(R.id.gallery_square_single).setVisibility(View.VISIBLE);
+                view.findViewById(R.id.gallery_square_scroll_view).setOverScrollMode(View.OVER_SCROLL_ALWAYS);
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private void ButtonsControl(View view) {
+    private void ButtonsControl() {
         btn_first = view.findViewById(R.id.square_btn_first);
         btn_left = view.findViewById(R.id.square_btn_left);
         btn_right = view.findViewById(R.id.square_btn_right);

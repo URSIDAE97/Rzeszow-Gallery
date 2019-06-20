@@ -22,8 +22,8 @@
 
     <string name="menu_home_item1">Zamknij</string>
 
-    <string name="menu_galleries_item1_1">Widok siatki</string>
-    <string name="menu_galleries_item1_2">Widok pojedynczy</string>
+    <string name="menu_galleries_item1">Widok siatki</string>
+    <string name="menu_galleries_item2">Widok pojedynczy</string>
 
     <!-- home page -->
     <string name="home_info">Rzeszów to największe miasto w Polsce południowo-wschodniej, stolica Podkarpacia. Powstało już w XIV wieku i od tego czasu prężnie się rozwijało. Choć w czasie II wojny światowej zostało bardzo osłabione wciąż ma ogromny potencjał. Jest najważniejszym ośrodkiem gospodarczym, kulturalnym i komunikacyjnym Podkarpacia. Na terenie Rzeszowa znajduje się lotnisko międzynarodowe. Dzięki obecności wielu szkół wyższych, w tym Uniwersytetu Rzeszowskiego, jest też ważnym punktem oświatowym na mapie Polski, skupiającym ok. 50 tys. studentów.</string>

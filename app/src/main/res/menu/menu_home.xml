@@ -6,7 +6,7 @@
         android:id="@+id/action_exit"
         app:showAsAction="never"
         android:title="@string/menu_home_item1"
-        android:orderInCategory="2">
+        android:orderInCategory="3">
     </item>
 
 </menu>
