@@ -1,4 +1,4 @@
-package com.rzeszowgallery;
+package com.rzeszowgallery.listiner;
 
 import android.content.Context;
 import android.view.GestureDetector;

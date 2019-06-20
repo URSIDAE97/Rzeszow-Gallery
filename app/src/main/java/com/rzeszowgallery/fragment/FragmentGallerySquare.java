@@ -1,18 +1,26 @@
-package com.rzeszowgallery;
+package com.rzeszowgallery.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+
+import com.rzeszowgallery.listiner.OnSwipeTouchListener;
+import com.rzeszowgallery.R;
 
 public class FragmentGallerySquare extends Fragment {
 
@@ -31,6 +39,9 @@ public class FragmentGallerySquare extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_gallery_square, container, false);
+        try{ ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.square_toolbar_title); }
+        catch (Exception e) {}
+        setHasOptionsMenu(true);
         img = view.findViewById(R.id.square_img);
         txt = view.findViewById(R.id.square_txt);
         res = getResources();
@@ -39,6 +50,23 @@ public class FragmentGallerySquare extends Fragment {
         SwipeControl();
 
         return view;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_galleries, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_grid:
+                Toast.makeText(getActivity(), "grid", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void ButtonsControl(View view) {
@@ -90,14 +118,10 @@ public class FragmentGallerySquare extends Fragment {
     private void SwipeControl() {
         img.setOnTouchListener(new OnSwipeTouchListener(getContext()) {
             @Override
-            public void onSwipeLeft() {
-                btn_right.callOnClick();
-            }
+            public void onSwipeLeft() { btn_right.callOnClick(); }
 
             @Override
-            public void onSwipeRight() {
-               btn_left.callOnClick();
-            }
+            public void onSwipeRight() { btn_left.callOnClick(); }
         });
     }
 }

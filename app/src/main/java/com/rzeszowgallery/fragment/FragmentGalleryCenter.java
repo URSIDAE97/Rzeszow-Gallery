@@ -1,4 +1,4 @@
-package com.rzeszowgallery;
+package com.rzeszowgallery.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,11 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class FragmentLinks extends Fragment {
+import com.rzeszowgallery.R;
+
+public class FragmentGalleryCenter extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_links, container, false);
+        return inflater.inflate(R.layout.fragment_gallery_center, container, false);
     }
 }

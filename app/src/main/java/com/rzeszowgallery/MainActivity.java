@@ -8,14 +8,24 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.rzeszowgallery.fragment.FragmentGalleryCastle;
+import com.rzeszowgallery.fragment.FragmentGalleryCenter;
+import com.rzeszowgallery.fragment.FragmentGalleryOther;
+import com.rzeszowgallery.fragment.FragmentGallerySquare;
+import com.rzeszowgallery.fragment.FragmentHome;
+import com.rzeszowgallery.fragment.FragmentLinks;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
+
+    // --- Create --- //
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navigationView.setCheckedItem(R.id.nav_home);
         }
     }
+
+    // --- Drawer menu handler --- //
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -73,6 +85,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    // --- Toolbar menu handler --- //
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_home, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_exit:
+                Toast.makeText(this, "exit", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    // --- Phone buttons handler --- //
 
     @Override
     public void onBackPressed() {
