@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">Rzeszów</string>
 
     <!-- navigation drawer -->
@@ -41,9 +42,13 @@
     <string name="home_gallery_other_desc">Most Mazowieckiego</string>
     <string name="home_toolbar_title">Rzeszów</string>
 
+    <!-- links page -->
+    <string name="links_header">Więcej informacji o Rzeszowie:</string>
+
     <!-- gallery - square page -->
     <string name="square_header">Rzeszowski rynek:</string>
     <string name="square_img_desc">Rzeszowski rynek - zdjęcie z galerii</string>
     <string name="square_img_counter">%1$d / %2$d</string>
     <string name="square_toolbar_title">Rynek - galeria</string>
+
 </resources>

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -32,29 +33,39 @@ public class FragmentGallerySquare extends Fragment {
     private TextView txt;
     private Resources res;
     private View view;
+    private LinearLayout gridLayout;
+    private LinearLayout singleLayout;
     private int[] images = { R.drawable.square_gallery_1,
                             R.drawable.square_gallery_2,
                             R.drawable.square_gallery_3,
                             R.drawable.square_gallery_4,
-                            R.drawable.square_gallery_5 };
+                            R.drawable.square_gallery_5,
+                            R.drawable.square_gallery_6,
+                            R.drawable.square_gallery_7,
+                            R.drawable.square_gallery_8,
+                            R.drawable.square_gallery_9,
+                            R.drawable.square_gallery_10 };
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_gallery_square, container, false);
-
-        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
-        recyclerView.setLayoutManager(gridLayoutManager);
-        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(getActivity(), images);
-        recyclerView.setAdapter(recyclerAdapter);
-
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.square_toolbar_title);
-        setHasOptionsMenu(true);
+        gridLayout = view.findViewById(R.id.gallery_square_grid);
+        singleLayout = view.findViewById(R.id.gallery_square_single);
         img = view.findViewById(R.id.square_img);
         txt = view.findViewById(R.id.square_txt);
         res = getResources();
         txt.setText(res.getString(R.string.square_img_counter, img_index + 1, images.length));
+
+        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(images, img, txt, res, gridLayout, singleLayout);
+        recyclerView.setAdapter(recyclerAdapter);
+
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.square_toolbar_title);
+        setHasOptionsMenu(true);
+
         ButtonsControl();
         SwipeControl();
 
@@ -71,15 +82,13 @@ public class FragmentGallerySquare extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_grid:
-                view.findViewById(R.id.gallery_square_single).setVisibility(View.GONE);
-                view.findViewById(R.id.gallery_square_grid).setVisibility(View.VISIBLE);
-                view.findViewById(R.id.gallery_square_scroll_view).setOverScrollMode(View.OVER_SCROLL_NEVER);
+                singleLayout.setVisibility(View.GONE);
+                gridLayout.setVisibility(View.VISIBLE);
                 return true;
 
             case R.id.action_single:
-                view.findViewById(R.id.gallery_square_grid).setVisibility(View.GONE);
-                view.findViewById(R.id.gallery_square_single).setVisibility(View.VISIBLE);
-                view.findViewById(R.id.gallery_square_scroll_view).setOverScrollMode(View.OVER_SCROLL_ALWAYS);
+                gridLayout.setVisibility(View.GONE);
+                singleLayout.setVisibility(View.VISIBLE);
                 return true;
 
             default:
@@ -98,6 +107,7 @@ public class FragmentGallerySquare extends Fragment {
             public void onClick(View view) {
                 img_index = 0;
                 img.setImageResource(images[img_index]);
+                img.setTag(img_index);
                 txt.setText(res.getString(R.string.square_img_counter, img_index + 1, images.length));
             }
         });
@@ -108,6 +118,7 @@ public class FragmentGallerySquare extends Fragment {
                 img_index --;
                 if(img_index < 0) img_index = images.length - 1;
                 img.setImageResource(images[img_index]);
+                img.setTag(img_index);
                 txt.setText(res.getString(R.string.square_img_counter, img_index + 1, images.length));
             }
         });
@@ -118,6 +129,7 @@ public class FragmentGallerySquare extends Fragment {
                 img_index ++;
                 img_index %= images.length;
                 img.setImageResource(images[img_index]);
+                img.setTag(img_index);
                 txt.setText(res.getString(R.string.square_img_counter, img_index + 1, images.length));
             }
         });
@@ -127,6 +139,7 @@ public class FragmentGallerySquare extends Fragment {
             public void onClick(View view) {
                 img_index = images.length - 1;
                 img.setImageResource(images[img_index]);
+                img.setTag(img_index);
                 txt.setText(res.getString(R.string.square_img_counter, img_index + 1, images.length));
             }
         });
