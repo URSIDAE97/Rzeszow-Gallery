@@ -61,4 +61,22 @@
     <string name="square_img_counter">%1$d / %2$d</string>
     <string name="square_toolbar_title">Rynek - galeria</string>
 
+    <!-- gallery - center page -->
+    <string name="center_header">Centrum Rzeszowa:</string>
+    <string name="center_img_desc">Rzeszowskie centrum - zdjęcie z galerii</string>
+    <string name="center_img_counter">%1$d / %2$d</string>
+    <string name="center_toolbar_title">Centrum - galeria</string>
+
+    <!-- gallery - castle page -->
+    <string name="castle_header">Zamek Lubomirskich:</string>
+    <string name="castle_img_desc">Zamek Lubomirskich - zdjęcie z galerii</string>
+    <string name="castle_img_counter">%1$d / %2$d</string>
+    <string name="castle_toolbar_title">Zamek - galeria</string>
+
+    <!-- gallery - other page -->
+    <string name="other_header">Rzeszowskie widoki:</string>
+    <string name="other_img_desc">Rzeszów - zdjęcie z galerii</string>
+    <string name="other_img_counter">%1$d / %2$d</string>
+    <string name="other_toolbar_title">Różne - galeria</string>
+
 </resources>
