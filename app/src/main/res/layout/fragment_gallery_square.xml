@@ -3,8 +3,7 @@
     android:id="@+id/gallery_square_scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fragment_background"
-    android:overScrollMode="always">
+    android:background="@drawable/fragment_background" >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -87,6 +86,7 @@
         </LinearLayout>
 
         <!-- Grid layout -->
+
         <LinearLayout
             android:id="@+id/gallery_square_grid"
             android:layout_width="match_parent"

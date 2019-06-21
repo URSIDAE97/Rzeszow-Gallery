@@ -35,19 +35,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // set toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // set drawer
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_menu);
         navigationView.setNavigationItemSelectedListener(this);
-
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentHome()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new FragmentHome()).commit();
         }
     }
 
@@ -121,15 +123,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_exit:
-                finish();
-                moveTaskToBack(true);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.action_exit) {
+            finish();
+            moveTaskToBack(true);
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     // --- Phone buttons handler --- //
@@ -138,9 +138,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onBackPressed() {
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
         LinearLayout linksWebLayout = findViewById(R.id.links_web_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else if(!(fragment instanceof FragmentHome)) {
+
+        if (drawer.isDrawerOpen(GravityCompat.START)) { drawer.closeDrawer(GravityCompat.START); }
+        else if(!(fragment instanceof FragmentHome)) {
             if(fragment instanceof FragmentLinks && linksWebLayout.getVisibility() == View.VISIBLE) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new FragmentLinks()).commit();

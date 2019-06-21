@@ -57,15 +57,15 @@ public class FragmentGallerySquare extends Fragment {
         res = getResources();
         txt.setText(res.getString(R.string.square_img_counter, img_index + 1, images.length));
 
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.square_toolbar_title);
+        setHasOptionsMenu(true);
+        // set recycler view
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
         recyclerView.setLayoutManager(gridLayoutManager);
         RecyclerAdapter recyclerAdapter = new RecyclerAdapter(images, img, txt, res, gridLayout, singleLayout);
         recyclerView.setAdapter(recyclerAdapter);
-
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.square_toolbar_title);
-        setHasOptionsMenu(true);
-
+        // set navigation control
         ButtonsControl();
         SwipeControl();
 
@@ -85,12 +85,10 @@ public class FragmentGallerySquare extends Fragment {
                 singleLayout.setVisibility(View.GONE);
                 gridLayout.setVisibility(View.VISIBLE);
                 return true;
-
             case R.id.action_single:
                 gridLayout.setVisibility(View.GONE);
                 singleLayout.setVisibility(View.VISIBLE);
                 return true;
-
             default:
                 return super.onOptionsItemSelected(item);
         }

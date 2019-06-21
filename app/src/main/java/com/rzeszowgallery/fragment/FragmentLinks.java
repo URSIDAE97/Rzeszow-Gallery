@@ -32,6 +32,7 @@ public class FragmentLinks extends Fragment {
         webView = view.findViewById(R.id.links_web_view);
         webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.links_toolbar_title);
         LinksImgControl();
 

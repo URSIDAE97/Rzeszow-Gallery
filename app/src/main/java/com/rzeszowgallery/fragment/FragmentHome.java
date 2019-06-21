@@ -19,23 +19,25 @@ import com.rzeszowgallery.R;
 public class FragmentHome extends Fragment {
 
     private NavigationView navigationView;
+    private View view;
 
     // --- Create --- //
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.home_toolbar_title);
+        view = inflater.inflate(R.layout.fragment_home, container, false);
         navigationView = getActivity().findViewById(R.id.nav_menu);
-        CardButtonsControl(view);
+
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.home_toolbar_title);
+        CardButtonsControl();
 
         return view;
     }
 
     // --- Card buttons handler --- //
 
-    private void CardButtonsControl(View view) {
+    private void CardButtonsControl() {
         CardView card_square = view.findViewById(R.id.card_square);
         CardView card_castle = view.findViewById(R.id.card_castle);
         CardView card_center = view.findViewById(R.id.card_center);

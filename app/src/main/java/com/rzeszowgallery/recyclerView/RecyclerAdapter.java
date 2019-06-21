@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,14 +32,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter< ImageViewHolder > {
         this.singleLayout = singleLayout;
     }
 
+    @NonNull
     @Override
-    public ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_item_row, parent, false);
+
         return new ImageViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final ImageViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final ImageViewHolder holder, final int position) {
         holder.img.setImageResource(images[position]);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override

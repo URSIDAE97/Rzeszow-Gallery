@@ -4,10 +4,9 @@
     android:layout_height="wrap_content"
     android:background="@drawable/fragment_background">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:layout_height="wrap_content" >
 
         <!-- Navigation layout -->
 
@@ -110,6 +109,6 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </ScrollView>

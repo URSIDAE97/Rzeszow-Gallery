@@ -3,8 +3,8 @@
     <string name="app_name">Rzeszów</string>
 
     <!-- navigation drawer -->
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Otwórz menu</string>
+    <string name="navigation_drawer_close">Zamknij menu</string>
 
     <!-- menu header -->
     <string name="header_main">RZESZÓW</string>
@@ -51,6 +51,9 @@
     <string name="links_subtitle_2">https://rzeszow-news.pl/</string>
     <string name="links_desc_2">logo portalu informacyjnego Rzeszów News</string>
     <string name="links_toolbar_title">Rzeszów</string>
+
+    <!-- galleries grid view -->
+    <string name="galleries_grid_view_desc">Zdjęcie z galerii</string>
 
     <!-- gallery - square page -->
     <string name="square_header">Rzeszowski rynek:</string>

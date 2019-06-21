@@ -23,7 +23,7 @@
                 android:id="@+id/recycler_img"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:contentDescription="@string/home_gallery_square_desc"
+                android:contentDescription="@string/galleries_grid_view_desc"
                 android:src="@drawable/square_gallery_1" />
 
         </LinearLayout>
