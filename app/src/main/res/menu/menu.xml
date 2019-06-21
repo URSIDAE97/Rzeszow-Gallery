@@ -1,47 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:checked="true"
+        android:title="@string/menu_main_item1" />
 
-        <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_home"
-            android:title="Strona główna" />
-
-
-        <item
-            android:id="@+id/nav_gallery_square"
-            android:icon="@drawable/ic_gallery"
-            android:title="Galeria - Rynek" />
-        <item
-            android:id="@+id/nav_gallery_center"
-            android:icon="@drawable/ic_gallery"
-            android:title="Galeria - Centrum" />
-        <item
-            android:id="@+id/nav_gallery_castle"
-            android:icon="@drawable/ic_gallery"
-            android:title="Galeria - Zamek" />
-        <item
-            android:id="@+id/nav_gallery_other"
-            android:icon="@drawable/ic_gallery"
-            android:title="Galeria - Różne" />
-
-
-        <item
-            android:id="@+id/nav_links"
-            android:icon="@drawable/ic_link"
-            android:title="Linki" />
-
-    </group>
-
-    <item android:title="Communicate">
+    <item android:title="@string/menu_main_title1">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_gallery_square"
                 android:icon="@drawable/ic_gallery"
-                android:title="Share" />
+                android:checked="false"
+                android:title="@string/menu_main_item2" />
+            <item
+                android:id="@+id/nav_gallery_center"
+                android:icon="@drawable/ic_gallery"
+                android:checked="false"
+                android:title="@string/menu_main_item3" />
+            <item
+                android:id="@+id/nav_gallery_castle"
+                android:icon="@drawable/ic_gallery"
+                android:checked="false"
+                android:title="@string/menu_main_item4" />
+            <item
+                android:id="@+id/nav_gallery_other"
+                android:icon="@drawable/ic_gallery"
+                android:checked="false"
+                android:title="@string/menu_main_item5" />
+        </menu>
+    </item>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_links"
+                android:icon="@drawable/ic_link"
+                android:checked="false"
+                android:title="@string/menu_main_item6" />
+            <item
+                android:id="@+id/nav_exit"
+                android:icon="@drawable/ic_exit"
+                android:title="@string/menu_main_item7" />
         </menu>
     </item>
 

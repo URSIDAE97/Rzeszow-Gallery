@@ -2,8 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/fragment_backgraund">
+    android:layout_height="wrap_content"
+    android:background="@drawable/fragment_background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,12 +22,14 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="250dp"
+            android:padding="4dp"
             android:contentDescription="@string/home_square_desc"
             android:src="@drawable/home_square" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="4dp"
             android:gravity="center"
             android:text="@string/home_info"
             android:textColor="@android:color/black"
@@ -36,10 +38,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="125dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
+            android:padding="5dp"
             android:contentDescription="@string/home_logo_desc"
             android:src="@drawable/home_logo" />
 
@@ -53,16 +52,16 @@
             android:textSize="25sp" />
 
         <GridLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:columnCount="2"
             android:rowCount="2"
-            android:padding="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp" >
+            android:padding="10dp" >
 
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card_square"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardElevation="3dp"
@@ -93,6 +92,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card_castle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -124,6 +124,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card_center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -155,6 +156,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card_other"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

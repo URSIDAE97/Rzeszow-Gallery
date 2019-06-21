@@ -1,14 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fragment_backgraund">
+    android:background="@drawable/fragment_background" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Galeria rynek"
-        android:textSize="30sp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</RelativeLayout>
+        <!-- Single image layout -->
+
+        <LinearLayout
+            android:id="@+id/gallery_square_single"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/square_header"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp" />
+
+            <ImageView
+                android:id="@+id/square_img"
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:src="@drawable/square_gallery_1"
+                android:contentDescription="@string/square_img_desc"
+                android:padding="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/square_btn_first"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_first_page"
+                    android:drawableLeft="@drawable/ic_first_page" />
+
+                <Button
+                    android:id="@+id/square_btn_left"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_left"
+                    android:drawableLeft="@drawable/ic_left" />
+
+                <TextView
+                    android:id="@+id/square_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:gravity="center"
+                    android:text="@string/square_img_counter"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/square_btn_right"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_right"
+                    android:drawableLeft="@drawable/ic_right" />
+
+                <Button
+                    android:id="@+id/square_btn_last"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_last_page"
+                    android:drawableLeft="@drawable/ic_last_page" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Grid layout -->
+
+        <LinearLayout
+            android:id="@+id/gallery_square_grid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/square_header"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>
