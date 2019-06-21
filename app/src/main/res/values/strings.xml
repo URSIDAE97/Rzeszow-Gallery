@@ -44,6 +44,13 @@
 
     <!-- links page -->
     <string name="links_header">Więcej informacji o Rzeszowie:</string>
+    <string name="links_title_1">Serwis informacyjny urzędu miasta Rzeszowa:</string>
+    <string name="links_subtitle_1">http://www.rzeszow.pl/</string>
+    <string name="links_desc_1">logo serwisu informacyjnego urzędu miasta Rzeszowa</string>
+    <string name="links_title_2">Portal informacyjny Rzeszów News:</string>
+    <string name="links_subtitle_2">https://rzeszow-news.pl/</string>
+    <string name="links_desc_2">logo portalu informacyjnego Rzeszów News</string>
+    <string name="links_toolbar_title">Rzeszów</string>
 
     <!-- gallery - square page -->
     <string name="square_header">Rzeszowski rynek:</string>

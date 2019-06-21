@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.rzeszowgallery.fragment.FragmentGalleryCastle;
@@ -135,13 +137,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void onBackPressed() {
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+        LinearLayout linksWebLayout = findViewById(R.id.links_web_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else if(!(fragment instanceof FragmentHome)) {
-            uncheckAllItems(navigationView.getMenu());
-            navigationView.getMenu().getItem(0).setChecked(true);
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new FragmentHome()).commit();
+            if(fragment instanceof FragmentLinks && linksWebLayout.getVisibility() == View.VISIBLE) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new FragmentLinks()).commit();
+            } else {
+                uncheckAllItems(navigationView.getMenu());
+                navigationView.getMenu().getItem(0).setChecked(true);
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new FragmentHome()).commit();
+            }
         } else {
             super.onBackPressed();
         }
