@@ -30,10 +30,43 @@
             <ImageView
                 android:id="@+id/other_img"
                 android:layout_width="match_parent"
-                android:layout_height="450dp"
+                android:layout_height="425dp"
                 android:src="@drawable/other_gallery_1"
                 android:contentDescription="@string/other_img_desc"
                 android:padding="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <Switch
+                    android:id="@+id/gallery_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gallery_switch_title"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:theme="@style/SwitchTheme" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gallery_time_list_title"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/gallery_time_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/gallery_time_list_items"/>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

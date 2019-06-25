@@ -9,9 +9,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,7 +30,10 @@ import com.rzeszowgallery.listiner.OnSwipeTouchListener;
 import com.rzeszowgallery.R;
 import com.rzeszowgallery.recyclerView.RecyclerAdapter;
 
-public class FragmentGallerySquare extends Fragment {
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class FragmentGallerySquare extends Fragment implements AdapterView.OnItemSelectedListener {
 
     private Button btn_first, btn_left, btn_right, btn_last;
     private int img_index = 0;
@@ -35,6 +43,10 @@ public class FragmentGallerySquare extends Fragment {
     private View view;
     private LinearLayout gridLayout;
     private LinearLayout singleLayout;
+    private Spinner timeList;
+    private Switch slideSwitch;
+    private int time;
+    private Timer timer;
     private int[] images = { R.drawable.square_gallery_1,
                             R.drawable.square_gallery_2,
                             R.drawable.square_gallery_3,
@@ -52,6 +64,8 @@ public class FragmentGallerySquare extends Fragment {
         view = inflater.inflate(R.layout.fragment_gallery_square, container, false);
         gridLayout = view.findViewById(R.id.gallery_square_grid);
         singleLayout = view.findViewById(R.id.gallery_square_single);
+        timeList = view.findViewById(R.id.gallery_time_list);
+        slideSwitch = view.findViewById(R.id.gallery_switch);
         img = view.findViewById(R.id.square_img);
         txt = view.findViewById(R.id.square_txt);
         res = getResources();
@@ -68,6 +82,21 @@ public class FragmentGallerySquare extends Fragment {
         // set navigation control
         ButtonsControl();
         SwipeControl();
+        // set slide show
+        slideSwitch.setChecked(true);
+        slideSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                if(checked) startSlideShow();
+                else stopSlideShow();
+            }
+        });
+        ArrayAdapter<CharSequence> timeListAdapter = ArrayAdapter.createFromResource(getContext(),
+                R.array.gallery_time_list_items, android.R.layout.simple_spinner_item);
+        timeListAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        timeList.setAdapter(timeListAdapter);
+        timeList.setSelection(2);
+        timeList.setOnItemSelectedListener(this);
 
         return view;
     }
@@ -82,6 +111,7 @@ public class FragmentGallerySquare extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_grid:
+                slideSwitch.setChecked(false);
                 singleLayout.setVisibility(View.GONE);
                 gridLayout.setVisibility(View.VISIBLE);
                 return true;
@@ -94,6 +124,63 @@ public class FragmentGallerySquare extends Fragment {
         }
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
+        stopSlideShow();
+        switch (position) {
+            case 0:
+                time = 1000;
+                break;
+            case 1:
+                time = 2000;
+                break;
+            case 2:
+                time = 3000;
+                break;
+            case 3:
+                time = 4000;
+                break;
+            case 4:
+                time = 5000;
+                break;
+        }
+        startSlideShow();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        stopSlideShow();
+        time = 1000;
+        startSlideShow();
+    }
+
+    private void startSlideShow() {
+        if(slideSwitch.isChecked()) {
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                public void run() {
+                    if(getActivity() != null)
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                img_index ++;
+                                img_index %= images.length;
+                                img.setImageResource(images[img_index]);
+                                img.setTag(img_index);
+                                txt.setText(res.getString(R.string.square_img_counter, img_index + 1, images.length));
+                            }
+                        });
+                    timer.cancel();
+                    startSlideShow();
+                }
+            }, time);
+        }
+    }
+
+    private void stopSlideShow() {
+        if(timer != null) { timer.cancel(); }
+    }
+
     private void ButtonsControl() {
         btn_first = view.findViewById(R.id.square_btn_first);
         btn_left = view.findViewById(R.id.square_btn_left);
@@ -103,42 +190,50 @@ public class FragmentGallerySquare extends Fragment {
         btn_first.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                stopSlideShow();
                 img_index = 0;
                 img.setImageResource(images[img_index]);
                 img.setTag(img_index);
                 txt.setText(res.getString(R.string.square_img_counter, img_index + 1, images.length));
+                startSlideShow();
             }
         });
 
         btn_left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                stopSlideShow();
                 img_index --;
                 if(img_index < 0) img_index = images.length - 1;
                 img.setImageResource(images[img_index]);
                 img.setTag(img_index);
                 txt.setText(res.getString(R.string.square_img_counter, img_index + 1, images.length));
+                startSlideShow();
             }
         });
 
         btn_right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                stopSlideShow();
                 img_index ++;
                 img_index %= images.length;
                 img.setImageResource(images[img_index]);
                 img.setTag(img_index);
                 txt.setText(res.getString(R.string.square_img_counter, img_index + 1, images.length));
+                startSlideShow();
             }
         });
 
         btn_last.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                stopSlideShow();
                 img_index = images.length - 1;
                 img.setImageResource(images[img_index]);
                 img.setTag(img_index);
                 txt.setText(res.getString(R.string.square_img_counter, img_index + 1, images.length));
+                startSlideShow();
             }
         });
     }

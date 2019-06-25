@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- primary colors -->
     <color name="colorPrimary">#FF8400</color>
     <color name="colorPrimaryDark">#99FF5722</color>
     <color name="colorAccent">#FF5722</color>
+
+    <!-- switch colors -->
+    <color name="switchBlack">#070200</color>
 
 </resources>

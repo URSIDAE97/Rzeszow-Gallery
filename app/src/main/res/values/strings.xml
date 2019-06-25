@@ -55,6 +55,17 @@
     <!-- galleries grid view -->
     <string name="galleries_grid_view_desc">Zdjęcie z galerii</string>
 
+    <!-- galleries -->
+    <string name="gallery_switch_title">Pokaz slajdów: </string>
+    <string name="gallery_time_list_title">Czas: </string>
+    <string-array name="gallery_time_list_items">
+        <item>1 s</item>
+        <item>2 s</item>
+        <item>3 s</item>
+        <item>4 s</item>
+        <item>5 s</item>
+    </string-array>
+
     <!-- gallery - square page -->
     <string name="square_header">Rzeszowski rynek:</string>
     <string name="square_img_desc">Rzeszowski rynek - zdjęcie z galerii</string>
